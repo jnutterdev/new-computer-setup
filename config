@@ -1,0 +1,69 @@
+###################
+# EXTERNAL ACCOUNTS 
+###################
+
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_github
+
+Host ashtephra
+    HostName ashtephra.com
+    User atadmin@ashtephra.com
+    IdentityFile ~/.ssh/id_rsa_ashtephra
+
+###############
+# LOCAL NETWORK
+###############
+
+# Ark - Router
+# MacOS & iOS & Linux: Autobots
+# Android & Windows: Decepticons
+
+Host orionpax
+    HostName 192.168.0.228
+    User john
+    IdentityFile ~/.ssh/id_rsa_orionpax
+    # Ubuntu linux
+
+Host orionpax2
+    HostName 192.168.1.12
+    User john
+    IdentityFile ~/.ssh/id_rsa_orionpax
+    # Only accessible between orionpax and wheeljack
+
+Host wheeljack
+    HostName 192.168.0.244
+    User dune
+    IdentityFile ~/.ssh/id_rsa_wheeljack
+    # Macmini
+
+Host wheeljack2
+    HostName 192.168.1.11
+    User dune
+    IdentityFile ~/.ssh/id_rsa_wheeljack
+    # Only accessible between orionpax and wheeljack
+
+Host ironhide
+    HostName 192.168.0.33
+    User john
+    IdentityFile ~/.ssh/id_rsa_ironhide
+    # Macbook Air
+
+Host sideswipe
+    HostName 192.168.0.46
+    User jnutter
+    IdentityFile ~/.ssh/id_rsa_sideswipe
+    # Macbook Pro M1
+
+Host starscream
+    HostName 192.168.0.55
+    User john
+    IdentityFile ~/.ssh/id_rsa_starscream
+    # Windows 11 laptop
+
+Host soundwave
+    # Android phone
+
+Host Arcee
+    # iPhone 11
