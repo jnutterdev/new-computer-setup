@@ -5,7 +5,19 @@
 
 
 # install basic apps
-apt-get update && apt-get install git curl vim
+sudo apt-get update && sudo apt-get install git curl vim -y
+
+# install zsh, set as default
+if [ "$(which zsh)" == "" ]; then
+    echo "Installing zsh"
+    sudo apt-get install zsh -y
+    chsh -s /usr/bin/zsh
+elif [ "$(echo $SHELL)" != "/usr/bin/zsh" ]; then
+    chsh -s /usr/bin/zsh     
+    echo "Changed to zsh"
+else
+    echo "Zsh is already installed and default shell"
+fi
 
 # install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]; then
