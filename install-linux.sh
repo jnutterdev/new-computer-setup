@@ -8,12 +8,33 @@
 apt-get update && apt-get install git curl vim
 
 # install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d ~/.oh-my-zsh ]; then
+    echo "Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    echo "oh-my-zsh is installed" 1>&2
+fi 
 
 # create github directory
-mkdir ~/github.com
+if [ ! -d ~/github.com ]; then
+    echo "Created github.com directory"
+    mkdir ~/github.com
+else
+  echo "github.com already exists" 1>&2
+fi
 
 # clone fonts repo for use with oh-my-zsh
-git clone https://github.com/jnutterdev/fonts.git ~/github.com/fonts
+if [ ! -d ~/github.com/fonts ]; then
+    echo "Cloning fonts and installing"
+    git clone https://github.com/jnutterdev/fonts.git ~/github.com/fonts
+    ~/github.com/fonts/./install.sh
+else
+    echo "Powerline fonts already installed" 1>&2
+fi
 
-git clone https://github.com/jnutterdev/hostnames.git ~/github/hostnames && cd ~/github.com/hostnames && cp config ~/.ssh
+if [ -d ~/.ssh ]; then
+    echo "Copying ssh config"
+    cp ~/github.com/new-computer-setup/config ~/.ssh/config
+else
+    echo "ssh config updated" 1>&2
+fi
