@@ -47,10 +47,10 @@ fi
 if [ ! -d ~/.ssh ]; then
     echo "Creating .ssh directory" 1>&2
     mkdir ~/.ssh
-    cp ./new-computer-setup/config $HOME/.ssh/
+    cp config $HOME/.ssh/
 elif [ -d $HOME/.ssh ]; then
     echo "Copying ssh config" 1>&2
-    cp ./new-computer-setup/config $HOME/.ssh/
+    cp config $HOME/.ssh/
 else
     echo "ssh config updated" 1>&2
 fi
