@@ -5,7 +5,7 @@
 
 
 # install basic apps
-sudo apt-get update && sudo apt-get install git curl vim -y
+sudo apt-get update && sudo apt-get install openssh-server git curl vim -y
 
 # install zsh, set as default
 if [ "$(which zsh)" == "" ]; then
@@ -44,7 +44,10 @@ else
     echo "Powerline fonts already installed" 1>&2
 fi
 
-if [ -d ~/.ssh ]; then
+if [ ! -d ~/.ssh ]; then
+    echo "Creating .ssh directory"
+    mkdir ~/.ssh
+elif 
     echo "Copying ssh config"
     cp ~/github.com/new-computer-setup/config ~/.ssh/config
 else
