@@ -37,6 +37,15 @@ else
   echo "github.com already exists" 1>&2
 fi
 
+# setup github autocompletion
+if [ ! -d ~/zsh ]; then
+    echo "Created github.com directory"
+    mkdir $HOME/.zsh
+    cp _git git-completion.bash $HOME/.zsh/
+else
+  echo ".zsh already exists" 1>&2
+fi
+
 # clone fonts repo for use with oh-my-zsh
 if [ ! -d $HOME/github.com/fonts ]; then
     echo "Cloning fonts and installing" 1>&2
