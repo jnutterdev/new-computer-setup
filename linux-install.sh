@@ -49,7 +49,7 @@ fi
 # clone fonts repo for use with oh-my-zsh
 if [ ! -d $HOME/github.com/fonts ]; then
     echo "Cloning fonts and installing" 1>&2
-    git clone https://github.com/jnutterdev/fonts.git ~/github.com/fonts
+    git clone https://github.com/jnutterdev/fonts.git $HOME/github.com/fonts
     $HOME/github.com/fonts/./install.sh
 else
     echo "Powerline fonts already installed" 1>&2

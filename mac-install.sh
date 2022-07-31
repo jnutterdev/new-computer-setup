@@ -13,25 +13,25 @@ else
 fi
 
 # install oh-my-zsh
-if [ ! -d ~/.oh-my-zsh ]; then
-    echo "Installing oh-my-zsh"
+if [ ! -d $HOME/.oh-my-zsh ]; then
+    echo "Installing oh-my-zsh" 1>&2
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    cp simple.zsh-theme $ZSH_CUSTOM/themes
+    cp simple.zsh-theme $HOME/.oh-my-zsh/custom/themes
 else
     echo "oh-my-zsh is installed" 1>&2
-    cp simple.zsh-theme $ZSH_CUSTOM/themes
+    cp simple.zsh-theme $HOME/.oh-my-zsh/custom/themes
 fi 
 
 # create github directory
-if [ ! -d ~/github.com ]; then
+if [ ! -d $HOME/github.com ]; then
     echo "Created github.com directory"
-    mkdir ~/github.com
+    mkdir $HOME/github.com
 else
   echo "github.com already exists" 1>&2
 fi
 
 # setup github autocompletion
-if [ ! -d ~/zsh ]; then
+if [ ! -d $HOME/.zsh ]; then
     echo "Created github.com directory"
     mkdir $HOME/.zsh
     cp _git git-completion.bash $HOME/.zsh/
@@ -41,17 +41,17 @@ fi
 
 
 # clone fonts repo for use with oh-my-zsh
-if [ ! -d ~/github.com/fonts ]; then
+if [ ! -d $HOME/github.com/fonts ]; then
     echo "Cloning fonts and installing"
-    git clone https://github.com/jnutterdev/fonts.git ~/github.com/fonts
-    ~/github.com/fonts/./install.sh
+    git clone https://github.com/jnutterdev/fonts.git $HOME/github.com/fonts
+    $HOME/github.com/fonts/./install.sh
 else
     echo "Powerline fonts already installed" 1>&2
 fi
 
-if [ -d ~/.ssh ]; then
+if [ -d $HOME/.ssh ]; then
     echo "Copying ssh config"
-    cp ~/github.com/new-computer-setup/config ~/.ssh/config
+    cp $HOME/github.com/new-computer-setup/config $HOME/.ssh/config
 else
     echo "ssh config updated" 1>&2
 fi
