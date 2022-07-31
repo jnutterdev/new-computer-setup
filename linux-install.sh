@@ -23,8 +23,10 @@ fi
 if [ ! -d $HOME/.oh-my-zsh ]; then
     echo "Installing oh-my-zsh" 1>&2
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    cp simple.zsh-theme $ZSH_CUSTOM/themes
 else
     echo "oh-my-zsh is installed" 1>&2
+    cp simple.zsh-theme $ZSH_CUSTOM/themes
 fi 
 
 # create github directory

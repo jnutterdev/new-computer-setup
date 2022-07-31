@@ -16,8 +16,10 @@ fi
 if [ ! -d ~/.oh-my-zsh ]; then
     echo "Installing oh-my-zsh"
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    cp simple.zsh-theme $ZSH_CUSTOM/themes
 else
     echo "oh-my-zsh is installed" 1>&2
+    cp simple.zsh-theme $ZSH_CUSTOM/themes
 fi 
 
 # create github directory
@@ -26,6 +28,15 @@ if [ ! -d ~/github.com ]; then
     mkdir ~/github.com
 else
   echo "github.com already exists" 1>&2
+fi
+
+# setup github autocompletion
+if [ ! -d ~/zsh ]; then
+    echo "Created github.com directory"
+    mkdir $HOME/.zsh
+    cp _git git-completion.bash $HOME/.zsh/
+else
+  echo ".zsh already exists" 1>&2
 fi
 
 

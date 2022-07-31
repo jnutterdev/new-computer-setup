@@ -100,5 +100,14 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# HELPFUL ALIASES
+
 alias gh="cd ~/github.com"
 alias dl="cd ~/Downloads"
+
+# GIT COMPLETION
+
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
