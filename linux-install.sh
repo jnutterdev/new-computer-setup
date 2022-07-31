@@ -23,10 +23,10 @@ fi
 if [ ! -d $HOME/.oh-my-zsh ]; then
     echo "Installing oh-my-zsh" 1>&2
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    cp simple.zsh-theme $ZSH_CUSTOM/themes
+    cp simple.zsh-theme $HOME/.oh-my-zsh/custom/themes
 else
     echo "oh-my-zsh is installed" 1>&2
-    cp simple.zsh-theme $ZSH_CUSTOM/themes
+    cp simple.zsh-theme $HOME/.oh-my-zsh/custom/themes
 fi 
 
 # create github directory
@@ -38,7 +38,7 @@ else
 fi
 
 # setup github autocompletion
-if [ ! -d ~/zsh ]; then
+if [ ! -d $HOME/.zsh ]; then
     echo "Created github.com directory"
     mkdir $HOME/.zsh
     cp _git git-completion.bash $HOME/.zsh/
@@ -55,9 +55,9 @@ else
     echo "Powerline fonts already installed" 1>&2
 fi
 
-if [ ! -d ~/.ssh ]; then
+if [ ! -d $HOME/.ssh ]; then
     echo "Creating .ssh directory" 1>&2
-    mkdir ~/.ssh
+    mkdir $HOME/.ssh
     cp config $HOME/.ssh/
 elif [ -d $HOME/.ssh ]; then
     echo "Copying ssh config" 1>&2
